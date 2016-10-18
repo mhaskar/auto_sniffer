@@ -10,13 +10,11 @@ if os.getuid() != 0:
 cprint("[+]started at : {0}".format(time.ctime()),"green")
 time.sleep(1)
 destip = raw_input("Target IP >> ")
-#srcip  = raw_input("Attacker IP >> ")
 gateway = raw_input("Gateway IP >> ")
 interface = raw_input("Interface >> ")
 cprint("[+]Enabling IP forwarding ..","green")
 time.sleep(1)
 try:
- #os.system("xterm -hold -e echo 1 > /proc/sys/net/ipv4/ip_forward")
  sb.Popen("xterm -hold -e echo 1 > /proc/sys/net/ipv4/ip_forward", shell=True)
  cprint("[+]IP forwarding enabled","green")
  time.sleep(1)
@@ -38,7 +36,6 @@ time.sleep(1)
 try:
  wireshark_command="xterm -hold -e wireshark -i {0} -k -Y 'ip.src=={1}'".format(interface,destip)
  sb.Popen(wireshark_command, shell=True)	
- #sb.call("xterm -hold -e wireshark -i {0} -k","green")
  cprint("[+]wireshark launched","green")
  time.sleep(1)
 except:
@@ -46,4 +43,3 @@ except:
   sys.exit(0)
 
 cprint("All Done ! Happy Hunting :D","blue")
-#cprint("[+]launc","")
