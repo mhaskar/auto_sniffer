@@ -15,7 +15,7 @@ interface = raw_input("Interface >> ")
 cprint("[+]Enabling IP forwarding ..","green")
 time.sleep(1)
 try:
- sb.Popen("xterm -hold -e echo 1 > /proc/sys/net/ipv4/ip_forward", shell=True)
+ sb.Popen("echo 1 > /proc/sys/net/ipv4/ip_forward", shell=True)
  cprint("[+]IP forwarding enabled","green")
  time.sleep(1)
 except:
